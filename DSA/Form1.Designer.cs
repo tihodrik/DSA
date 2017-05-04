@@ -191,14 +191,14 @@
             // 
             // message
             // 
-            this.message.AutoSize = true;
             this.message.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.message.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.message.Location = new System.Drawing.Point(305, 238);
+            this.message.Location = new System.Drawing.Point(166, 228);
             this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(200, 17);
+            this.message.Size = new System.Drawing.Size(500, 17);
             this.message.TabIndex = 9;
-            this.message.Text = "Значение q некорректно!";
+            this.message.Text = "Текст был изменен или параметры заданы неверно";
+            this.message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.message.Visible = false;
             // 
             // Form1

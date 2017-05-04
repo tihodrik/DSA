@@ -117,7 +117,7 @@ namespace DSA
             }
             else
             {
-                message.Text = "Текст был изменен";
+                message.Text = "Текст был изменен или неверно заданы параметры";
                 message.ForeColor = System.Drawing.Color.Red;
                 message.Visible = true;
             }

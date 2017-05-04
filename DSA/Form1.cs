@@ -31,8 +31,8 @@ namespace DSA
             //paramQ = new BigInteger(int.MaxValue);
             //paramT = new BigInteger(524287);
             //paramP = paramQ * paramT + BigInteger.One;
-            paramQ = new BigInteger(524287);
-            paramT = new BigInteger(2);
+            paramQ = new BigInteger(142433);
+            paramT = new BigInteger(6);
             paramP = paramQ * paramT + BigInteger.One;
             
         }
@@ -68,15 +68,27 @@ namespace DSA
 
         private void Generate_Click(object sender, EventArgs e)
         {
-            s = new Sign(paramQ, paramP);
-            StringBuilder SB = s.GenerateSign(text.Text);
-            gen.Clear();
-            gen.AppendText(SB.ToString());
-            Check.Enabled = true;
+            if (paramP <= paramQ)
+            {
+                message.Text = "Неверно заданы параметры";
+                message.ForeColor = System.Drawing.Color.DeepPink;
+                message.Visible = true;
+            }
+            else
+            {
+                P.Text = paramP.ToString();
+                Q.Text = paramQ.ToString();
+                s = new Sign(paramQ, paramP);
+                StringBuilder SB = s.GenerateSign(text.Text);
+                gen.Clear();
+                gen.AppendText(SB.ToString());
+                Check.Enabled = true;
+            }
         }
 
         private void Q_TextChanged(object sender, EventArgs e)
         {
+            message.Visible = false;
             if (Q.Text.Length != 0)
             {
                 if (!BigInteger.TryParse(Q.Text, out tmpQ))
@@ -99,6 +111,7 @@ namespace DSA
 
         private void P_TextChanged(object sender, EventArgs e)
         {
+            message.Visible = false;
             if (P.Text.Length != 0)
             {
                 if (!BigInteger.TryParse(P.Text, out tmpP))
